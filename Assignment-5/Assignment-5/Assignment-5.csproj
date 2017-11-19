@@ -96,10 +96,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Member.xml" />
+    <Content Include="App_Data\Staff.xml" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="App_Data\Logins.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\XmlAccess\XmlAccessService.wsdl" />
     <None Include="Service References\XmlAccess\XmlAccessService.xsd">
       <SubType>Designer</SubType>
@@ -131,6 +136,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CredentialsManager.cs" />
+    <Compile Include="Models\XmlAccessObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\XmlAccess\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -154,9 +160,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\XmlAccess\" />
   </ItemGroup>

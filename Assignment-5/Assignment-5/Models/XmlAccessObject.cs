@@ -1,20 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Web;
 using System.Xml;
 
-namespace ServiceLibrary
+namespace Assignment_5.Models
 {
-    // Want to move this service into a basic class
-    // See issue right below vvv
-    public class XmlAccessService : IXmlAccessService
+    public class XmlAccessObject
     {
-        // Since our file paths will change when being run on TA machine,
-        // need to generate file path at runtime
-        // need to see how to do that without use of HttpContext
+
         private string PATH_TO_STAFF_XML = HttpContext.Current.Server.MapPath("~/App_Data/Staff.xml");
         private string PATH_TO_MEMBER_XML = HttpContext.Current.Server.MapPath("~/App_Data/Member.xml");
         private const string USER_NAME_KEY = "userName";
         private const string PASSWORD_KEY = "password";
+
+//        public XmlAccessObject(string pathToStaffXml, string pathToMemberXml)
+//        {
+//            
+//        }
 
         #region Authentication Methods
 
@@ -142,4 +146,3 @@ namespace ServiceLibrary
         #endregion
     }
 }
-

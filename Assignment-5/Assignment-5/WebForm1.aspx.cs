@@ -18,9 +18,9 @@ namespace Assignment_5
             string password = "Cse445ta!";
             HttpCookie authCookie = credManager.LoginStaff(userName, password);
             string id = EncDec.Encrypt(userName + password);
-            Request.Cookies.Add(authCookie);
 
             bool isLoggedIn = credManager.IsLoggedIn(authCookie, id);
+            Console.WriteLine("is logged in: " + isLoggedIn);
         }
     }
 }
