@@ -7,13 +7,17 @@ namespace Assignment_5.Models
 {
     public class CredentialsManager
     {
-        private XmlAccessServiceClient m_svcClient;
+        private XmlAccessObject m_XmlAccess;
+        private SessionStateManager m_SessionStateManager;
         private const string AUTH_COOKIE_NAME = "user";
-        private const string AUTH_COOKIE_KEY_NAME = "userID";
+        private const string AUTH_COOKIE_KEY_ID = "userID";
+      
 
         public CredentialsManager()
         {
-            m_svcClient = new XmlAccessServiceClient();
+            m_XmlAccess = new XmlAccessObject();
+            m_SessionStateManager = new SessionStateManager();
+            
         }
 
         public bool AuthenticateMember(string userName, string password)
@@ -21,7 +25,7 @@ namespace Assignment_5.Models
             string encryptedUName = EncDec.Encrypt(userName);
             string encryptedPW = EncDec.Encrypt(password);
 
-            return m_svcClient.AuthenticateMember(encryptedUName, encryptedPW);
+            return m_XmlAccess.AuthenticateMember(encryptedUName, encryptedPW);
         }
 
         public bool AuthenticateStaff(string userName, string password)
@@ -29,7 +33,7 @@ namespace Assignment_5.Models
             string encryptedUName = EncDec.Encrypt(userName);
             string encryptedPW = EncDec.Encrypt(password);
 
-            return m_svcClient.AuthenticateStaff(encryptedUName, encryptedPW);
+            return m_XmlAccess.AuthenticateStaff(encryptedUName, encryptedPW);
         }
 
         public void RegisterMember(string userName, string password)
@@ -37,7 +41,7 @@ namespace Assignment_5.Models
             string encryptedUName = EncDec.Encrypt(userName);
             string encryptedPW = EncDec.Encrypt(password);
 
-            m_svcClient.RegisterMember(encryptedUName, encryptedPW);
+            m_XmlAccess.RegisterMember(encryptedUName, encryptedPW);
         }
 
         public void RegisterStaff(string userName, string password)
@@ -45,7 +49,7 @@ namespace Assignment_5.Models
             string encryptedUName = EncDec.Encrypt(userName);
             string encryptedPW = EncDec.Encrypt(password);
 
-            m_svcClient.RegisterStaff(encryptedUName, encryptedPW);
+            m_XmlAccess.RegisterStaff(encryptedUName, encryptedPW);
         }
 
         // Login method will try to authenticate
@@ -57,52 +61,16 @@ namespace Assignment_5.Models
             if (AuthenticateStaff(userName, password))
             {
                 string id = EncDec.Encrypt(userName + password);
-                authCookie = CreateAuthCookie(id);
+                authCookie = SessionStateManager.CreateAuthCookie();
             }
 
             return authCookie;
         }
 
-        // Refactor
-        public bool IsLoggedIn(HttpCookie authCookie, string expectedID)
+        // pass our request in and check for our cookie 
+        public bool IsLoggedIn(HttpRequest request)
         {
-            return IsValidAuthCookie(authCookie, expectedID);
-        }
-
-        // 30 minute expiration on cookie
-        // need method of refreshing expiration 
-        private HttpCookie CreateAuthCookie(string encrypID)
-        {
-            HttpCookie authCookie = new HttpCookie(AUTH_COOKIE_NAME)
-            {
-                Secure = true,
-                [AUTH_COOKIE_KEY_NAME] = encrypID,
-                Expires = DateTime.Now.AddMinutes(30)
-            };
-
-            return authCookie;
-        }
-
-        public bool IsValidAuthCookie(HttpCookie authCookie, string expectedID)
-        {
-            bool isNotExpired = DateTime.Now < authCookie.Expires;
-            if ( !string.IsNullOrWhiteSpace(expectedID) && isNotExpired)
-            {
-                try
-                {
-                    string id = authCookie[AUTH_COOKIE_KEY_NAME];
-                    if (id == expectedID)
-                    {
-                        return true;
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-            }
-
-            return false;
+            return SessionStateManager.HasValidAuthCookie(request);
         }
     }
 }
