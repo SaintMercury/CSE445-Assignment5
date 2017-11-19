@@ -98,6 +98,9 @@
   <ItemGroup>
     <Content Include="App_Data\Member.xml" />
     <Content Include="App_Data\Staff.xml" />
+    <Content Include="Default.aspx" />
+    <Content Include="DefaultCpy.aspx" />
+    <Content Include="Member.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -118,6 +121,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Register.aspx" />
+    <Content Include="Staff.aspx" />
+    <Content Include="UserControl.ascx" />
+    <Content Include="UserControlCpy.ascx" />
     <Content Include="WebForm1.aspx" />
     <None Include="Service References\XmlAccess\XmlAccessService.disco" />
     <None Include="Service References\XmlAccess\configuration91.svcinfo" />
@@ -132,16 +139,51 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefaultCpy.aspx.cs">
+      <DependentUpon>DefaultCpy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefaultCpy.aspx.designer.cs">
+      <DependentUpon>DefaultCpy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Member.aspx.cs">
+      <DependentUpon>Member.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Models\CredentialsManager.cs" />
+    <Compile Include="Models\SessionStateManager.cs" />
     <Compile Include="Models\XmlAccessObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Service References\XmlAccess\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.aspx.cs">
+      <DependentUpon>Staff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl.ascx.cs">
+      <DependentUpon>UserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControlCpy.ascx.cs">
+      <DependentUpon>UserControlCpy.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControlCpy.ascx.designer.cs">
+      <DependentUpon>UserControlCpy.ascx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

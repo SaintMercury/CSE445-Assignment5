@@ -4,18 +4,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment-5", "Assignment-5\Assignment-5.csproj", "{FD314BB5-710E-4AF4-AF99-92A868ABAEB5}"
-	ProjectSection(ProjectDependencies) = postProject
-		{5C7BA43C-6E4D-4D42-8FDA-45CDE7D62376} = {5C7BA43C-6E4D-4D42-8FDA-45CDE7D62376}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionLibrary", "EncryptionLibrary\EncryptionLibrary.csproj", "{D3463A8C-36AE-467C-963F-CA268E0FF761}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{3D8CD5FA-3943-4494-AF75-88CDA4007E71}"
-	ProjectSection(ProjectDependencies) = postProject
-		{5C7BA43C-6E4D-4D42-8FDA-45CDE7D62376} = {5C7BA43C-6E4D-4D42-8FDA-45CDE7D62376}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLibrary", "ServiceLibrary\ServiceLibrary.csproj", "{5C7BA43C-6E4D-4D42-8FDA-45CDE7D62376}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +21,6 @@ Global
 		{D3463A8C-36AE-467C-963F-CA268E0FF761}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3463A8C-36AE-467C-963F-CA268E0FF761}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3463A8C-36AE-467C-963F-CA268E0FF761}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D8CD5FA-3943-4494-AF75-88CDA4007E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D8CD5FA-3943-4494-AF75-88CDA4007E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D8CD5FA-3943-4494-AF75-88CDA4007E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D8CD5FA-3943-4494-AF75-88CDA4007E71}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C7BA43C-6E4D-4D42-8FDA-45CDE7D62376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C7BA43C-6E4D-4D42-8FDA-45CDE7D62376}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C7BA43C-6E4D-4D42-8FDA-45CDE7D62376}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C7BA43C-6E4D-4D42-8FDA-45CDE7D62376}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

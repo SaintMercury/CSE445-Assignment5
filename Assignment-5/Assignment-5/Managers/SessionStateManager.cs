@@ -14,15 +14,22 @@ namespace Assignment_5.Models
         private const string AUTH_COOKIE_KEY_IS_STAFF = "staff";
 
 
-        public static HttpCookie CreateAuthCookie()
+        public static HttpCookie CreateAuthCookie(bool isStaff = false)
         {
+
+            string isStaffStr = "0";
+            if (isStaff)
+            {
+                isStaffStr = "1";
+            }
+
             string sessionId = HttpContext.Current.Session.SessionID;
             string encryptedSessionId = EncDec.Encrypt(sessionId);
             HttpCookie authCookie = new HttpCookie(AUTH_COOKIE_NAME)
             {
                 Secure = true,
                 [AUTH_COOKIE_KEY_ID] = encryptedSessionId,
-                Expires = DateTime.Now.AddMinutes(30)
+                [AUTH_COOKIE_KEY_IS_STAFF] = isStaffStr
             };
 
             return authCookie;
@@ -48,7 +55,7 @@ namespace Assignment_5.Models
                     if (id == expectedId)
                     {
                         return isValid;
-                    }
+                    } 
                 }
                 catch (Exception e)
                 {
