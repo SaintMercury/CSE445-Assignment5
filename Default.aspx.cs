@@ -14,8 +14,14 @@ public partial class _Default : System.Web.UI.Page
             HttpCookie cookies = Request.Cookies["CSE445-Assignment5-Group16"];
             if( !(cookies == null || cookies["Name"] == ""))
             {
-                mUsername.Text = cookies["Name"];
-                aUsername.Text = cookies["Name"];
+                mUsername.Text = cookies["mName"];
+                aUsername.Text = cookies["aName"];
+            }
+
+            // Redirect if already logged in
+            if(cookies["Logged-In"] == "true")
+            {
+                Response.Redirect("Member.aspx");
             }
         }
         catch(Exception ex)
@@ -28,24 +34,34 @@ public partial class _Default : System.Web.UI.Page
     {
         // Login as a member
         // Verify stuff
+        bool verifiedMember = true;
 
         // Cookie storage
-        HttpCookie cookies = new HttpCookie("CSE445-Assignment5-Group16");
-        cookies["mName"] = mUsername.Text;
-        cookies.Expires = DateTime.Now.AddMonths(1);
-        Response.Cookies.Add(cookies);
+        if(verifiedMember)
+        {
+            HttpCookie cookies = new HttpCookie("CSE445-Assignment5-Group16");
+            cookies["mName"] = mUsername.Text;
+            cookies.Expires = DateTime.Now.AddMonths(1);
+            Response.Cookies.Add(cookies);
+            Response.Redirect("Member.aspx");
+        }
     }
 
     protected void Button3_Click(object sender, EventArgs e)
     {
         // Login as an Admin
         // Verify Stuff
+        bool verifiedStaff = true;
 
         // Cookie storage
-        HttpCookie cookies = new HttpCookie("CSE445-Assignment5-Group16");
-        cookies["aName"] = mUsername.Text;
-        cookies.Expires = DateTime.Now.AddMonths(1);
-        Response.Cookies.Add(cookies);
+        if (verifiedStaff)
+        {
+            HttpCookie cookies = new HttpCookie("CSE445-Assignment5-Group16");
+            cookies["aName"] = mUsername.Text;
+            cookies.Expires = DateTime.Now.AddMonths(1);
+            Response.Cookies.Add(cookies);
+            Response.Redirect("Staff.aspx");
+        }
     }
 
     protected void Button4_Click(object sender, EventArgs e)
