@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <title></title>
+    <meta charset="utf-8" />
+
+</head>
+
+
+<body>
+<h3>Note that the listed components were developed by Joshua Mulla.</h3>
+<table>
+    <tr>
+        <th>Component</th>
+        <th>Class or Related Classes</th>
+        <th>File Path(s)</th>
+        <th>Service Description</th>
+        <th>TryIt link</th>
+    </tr>
+    <tr>
+        <td>Xml File Manipulation</td>
+        <td>XmlAccessObject.cs, CredentialsManager.cs</td>
+        <td>~/Assignment-5/Managers/XmlAccessObject.cs, ~/Assignment-5/Managers/CredentialsManager.cs, ~/Assignment-5/App_Data/Staff.xml || Member.xml</td>
+        <td>Primary means of reading and writing from Staff.xml and Member.xml</td>
+        <td><a href="TryItXml.aspx">Try It</a></td>
+    </tr>
+    <tr>
+        <td>Dll</td>
+        <td>EncDec.cs</td>
+        <td>~/EncryptionLibrary/EncDec.cs</td>
+        <td>Library for encrypting and decrpyting strings</td>
+        <td><a href="TryItEncryption.aspx">Try It</a></td>
+    </tr>
+    <tr>
+        <td>Service</td>
+        <td>Service Deployed to WebStrar</td>
+        <td>Actual address of service: http://webstrar16.fulton.asu.edu/page6/MyService.svc </td>
+        <td>To be used in the final application. Members will be able to look up coordinates and calculate distance between them,
+            storing calculations in the session state</td>
+        <td><a href="TryItGoogleServices.aspx">Try It</a></td>
+    </tr>
+</table>
+</body>
+</html>

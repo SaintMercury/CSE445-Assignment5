@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
-using Assignment_5.Models;
 
 namespace Assignment_5
 {
@@ -29,10 +23,6 @@ namespace Assignment_5
         {
             // Code that runs when a new session is started
             // See if we still got a session
-            if (SessionStateManager.HasValidAuthCookie(Request))
-            {
-                // do stuff
-            }
             
         }
         void Session_End(object sender, EventArgs e)

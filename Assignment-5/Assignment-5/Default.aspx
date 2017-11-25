@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Assignment_5.DefaultCpy" %>
-<%@ Register TagPrefix="userControl" TagName="GetDate" Src="~/UserControlCpy.ascx" %>
+<%@ Register TagPrefix="userControl" TagName="GetDate" Src="UserControl.ascx" %>
 
 <!DOCTYPE html>
 

@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.SessionState;
 using EncryptionLibrary;
 
-namespace Assignment_5.Models
+namespace Assignment_5.Managers
 {
+
+    // None of this is currently being used
+    // Probably going to trash it all
     public class SessionStateManager
     {
         private const string AUTH_COOKIE_NAME = "user";
-        private const string AUTH_COOKIE_KEY_ID = "userID";
+        private const string AUTH_COOKIE_KEY_ID = "UserID";
         private const string AUTH_COOKIE_KEY_IS_STAFF = "staff";
-
 
         public static HttpCookie CreateAuthCookie(bool isStaff = false)
         {
-
             string isStaffStr = "0";
             if (isStaff)
             {

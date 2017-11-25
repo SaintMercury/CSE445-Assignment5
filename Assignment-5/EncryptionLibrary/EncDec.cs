@@ -38,13 +38,23 @@ namespace EncryptionLibrary
                 throw new ArgumentNullException("The input cannot be empty or null!");
             }
             // decryption using DES 
-            SymmetricAlgorithm saProvider = DES.Create();
-            MemoryStream memStream = new MemoryStream
-                (Convert.FromBase64String(encryptedString));
-            CryptoStream cStream = new CryptoStream(memStream,
-                saProvider.CreateDecryptor(seed, seed), CryptoStreamMode.Read);
-            StreamReader reader = new StreamReader(cStream);
-            return reader.ReadLine();
+            try
+            {
+                SymmetricAlgorithm saProvider = DES.Create();
+                MemoryStream memStream = new MemoryStream( Convert.FromBase64String(encryptedString) );
+                CryptoStream cStream = new CryptoStream(memStream,
+                        saProvider.CreateDecryptor(seed, seed),
+                        CryptoStreamMode.Read);
+
+                StreamReader reader = new StreamReader(cStream);
+                return reader.ReadLine();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return null;
         }
     }
 }

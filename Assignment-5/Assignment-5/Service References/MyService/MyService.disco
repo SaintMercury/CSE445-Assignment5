@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
-  <contractRef ref="http://localhost:57755/XmlAccessService.svc?wsdl" docRef="http://localhost:57755/XmlAccessService.svc" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <contractRef ref="http://webstrar16.fulton.asu.edu/Page6/MyService.svc?wsdl" docRef="http://webstrar16.fulton.asu.edu/Page6/MyService.svc" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
 </discovery>
