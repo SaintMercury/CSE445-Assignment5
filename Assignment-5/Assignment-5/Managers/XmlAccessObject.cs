@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Web;
 using System.Xml;
 
-namespace Assignment_5.Models
+namespace Assignment_5.Managers
 {
     public class XmlAccessObject
     {
-
+        // Notice these aren't constant
+        // Generate a path relative to the machine application is deployed to
         private string PATH_TO_STAFF_XML = HttpContext.Current.Server.MapPath("~/App_Data/Staff.xml");
         private string PATH_TO_MEMBER_XML = HttpContext.Current.Server.MapPath("~/App_Data/Member.xml");
+
+        // Login element keys
         private const string USER_NAME_KEY = "userName";
         private const string PASSWORD_KEY = "password";
-
-//        public XmlAccessObject(string pathToStaffXml, string pathToMemberXml)
-//        {
-//            
-//        }
+        
 
         #region Authentication Methods
 
@@ -57,7 +53,6 @@ namespace Assignment_5.Models
                                         contents = reader.ReadString();
                                         if (contents == passwordIn) // success
                                         {
-
                                             return true;
                                         }
                                         else
@@ -80,21 +75,34 @@ namespace Assignment_5.Models
             return false;
         }
 
-
         #endregion
 
         #region Registration Methods
 
 
         // Registration methods utilize same logic with different file paths
-        public void RegisterMember(string userName, string password)
+        public bool RegisterMember(string userName, string password)
         {
-            RegisterUser(userName, password, PATH_TO_MEMBER_XML);
+            bool didRegister = false;
+            if (!IsDuplicateUserName(userName, PATH_TO_MEMBER_XML))
+            {
+                RegisterUser(userName, password, PATH_TO_MEMBER_XML);
+                didRegister = true;
+            }
+
+            return didRegister;
         }
 
-        public void RegisterStaff(string userName, string password)
+        public bool RegisterStaff(string userName, string password)
         {
-            RegisterUser(userName, password, PATH_TO_STAFF_XML);
+            bool didRegister = false;
+            if (!IsDuplicateUserName(userName, PATH_TO_STAFF_XML))
+            {
+                RegisterUser(userName, password, PATH_TO_STAFF_XML);
+                didRegister = true;
+            }
+
+            return didRegister;
         }
 
         private static void RegisterUser(string userName, string password, string filePath)
@@ -141,6 +149,38 @@ namespace Assignment_5.Models
             loginNode.InsertAfter(passwordNode, userNameNode);
 
             return loginNode;
+        }
+
+        private bool IsDuplicateUserName(string userNameIn, string filePath)
+        {
+
+            try
+            {
+                using (XmlTextReader reader = new XmlTextReader(filePath))
+                {
+                    // keep reading til we find matching username
+                    // else find none and return false
+                    while (reader.Read())
+                    {
+                        // element with key name username
+                        if (reader.NodeType == XmlNodeType.Element && reader.Name == USER_NAME_KEY)
+                        {
+                            string contents = reader.ReadString();
+                            if (contents == userNameIn)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("something went wrong");
+            }
+
+            // unable to match username
+            return false;
         }
 
         #endregion

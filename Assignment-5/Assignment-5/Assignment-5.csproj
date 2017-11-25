@@ -98,9 +98,10 @@
   <ItemGroup>
     <Content Include="App_Data\Member.xml" />
     <Content Include="App_Data\Staff.xml" />
+    <Content Include="TryItPages\index.html" />
+    <Content Include="Login.aspx" />
+    <Content Include="ProtectedMember\Member.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="DefaultCpy.aspx" />
-    <Content Include="Member.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -108,8 +109,17 @@
     <None Include="App_Data\Logins.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\XmlAccess\XmlAccessService.wsdl" />
-    <None Include="Service References\XmlAccess\XmlAccessService.xsd">
+    <Content Include="ProtectedMember\Web.config" />
+    <Content Include="ProtectedStaff\Web.config" />
+    <None Include="Properties\PublishProfiles\Josh.pubxml" />
+    <None Include="Service References\MyService\MyService.wsdl" />
+    <None Include="Service References\MyService\MyService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MyService\MyService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MyService\MyService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Web.Debug.config">
@@ -122,75 +132,96 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Register.aspx" />
-    <Content Include="Staff.aspx" />
+    <Content Include="ProtectedStaff\Staff.aspx" />
     <Content Include="UserControl.ascx" />
-    <Content Include="UserControlCpy.ascx" />
-    <Content Include="WebForm1.aspx" />
-    <None Include="Service References\XmlAccess\XmlAccessService.disco" />
-    <None Include="Service References\XmlAccess\configuration91.svcinfo" />
-    <None Include="Service References\XmlAccess\configuration.svcinfo" />
-    <None Include="Service References\XmlAccess\Reference.svcmap">
+    <None Include="Service References\MyService\MyService.disco" />
+    <None Include="Service References\MyService\configuration91.svcinfo" />
+    <None Include="Service References\MyService\configuration.svcinfo" />
+    <None Include="Service References\MyService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="TryItPages\TryItEncryption.aspx" />
+    <Content Include="TryItPages\TryItGoogleServices.aspx" />
+    <Content Include="TryItPages\TryItXml.aspx" />
     <Content Include="Web.config" />
-    <None Include="Service References\XmlAccess\XmlAccessService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+    <Compile Include="ProtectedMember\Member.aspx.cs">
+      <DependentUpon>Member.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProtectedMember\Member.aspx.designer.cs">
+      <DependentUpon>Member.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DefaultCpy.aspx.cs">
-      <DependentUpon>DefaultCpy.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DefaultCpy.aspx.designer.cs">
-      <DependentUpon>DefaultCpy.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Member.aspx.cs">
-      <DependentUpon>Member.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Models\CredentialsManager.cs" />
-    <Compile Include="Models\SessionStateManager.cs" />
-    <Compile Include="Models\XmlAccessObject.cs" />
+    <Compile Include="Managers\CredentialsManager.cs" />
+    <Compile Include="Managers\SessionStateManager.cs" />
+    <Compile Include="Managers\XmlAccessObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Service References\XmlAccess\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Staff.aspx.cs">
+    <Compile Include="ProtectedStaff\Staff.aspx.cs">
       <DependentUpon>Staff.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProtectedStaff\Staff.aspx.designer.cs">
+      <DependentUpon>Staff.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControl.ascx.cs">
       <DependentUpon>UserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserControlCpy.ascx.cs">
-      <DependentUpon>UserControlCpy.ascx</DependentUpon>
+    <Compile Include="UserControl.ascx.designer.cs">
+      <DependentUpon>UserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MyService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TryItPages\TryItEncryption.aspx.cs">
+      <DependentUpon>TryItEncryption.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserControlCpy.ascx.designer.cs">
-      <DependentUpon>UserControlCpy.ascx</DependentUpon>
+    <Compile Include="TryItPages\TryItEncryption.aspx.designer.cs">
+      <DependentUpon>TryItEncryption.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="TryItPages\TryItGoogleServices.aspx.cs">
+      <DependentUpon>TryItGoogleServices.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="TryItPages\TryItGoogleServices.aspx.designer.cs">
+      <DependentUpon>TryItGoogleServices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TryItPages\TryItXml.aspx.cs">
+      <DependentUpon>TryItXml.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TryItPages\TryItXml.aspx.designer.cs">
+      <DependentUpon>TryItXml.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -202,9 +233,8 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\XmlAccess\" />
+    <WCFMetadataStorage Include="Service References\MyService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
