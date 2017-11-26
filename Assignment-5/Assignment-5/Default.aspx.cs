@@ -1,17 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Assignment_5.Assign3ServicesMax;
 
 namespace Assignment_5
 {
     public partial class DefaultCpy : System.Web.UI.Page
     {
+        private ServiceClient m_svcClient;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            m_svcClient = new ServiceClient();
+            string[] arr = new[] {"Trump", "Twitter"};
+            var resp = m_svcClient.newsFocus(arr);
+            Console.WriteLine(resp);
         }
 
         protected void Button2_Click(object sender, EventArgs e)

@@ -22,7 +22,7 @@ namespace Assignment_5.ProtectedMember
         protected void btnGet_Distance_By_Address_Click1(object sender, EventArgs e)
         {
             // use the form fields to generate a trip obj
-            // if it goess successful, we have something we can save to the session state
+            // if it goes successfully, we have something we can save to the session state
             Trip trip = CreateTrip();
             if (trip != null)
             {
@@ -61,9 +61,8 @@ namespace Assignment_5.ProtectedMember
             return m_GeoService.GetDistanceByAddress(trip.FromAddress, trip.DestAddress);
         }
 
-        // Try to deserialize an existing trips list on page load
-        // if no trips in the session state, 
-        // create a new list and save it
+        // Existing list is deserialized to member variable on page load
+        // if no trips at save time, create a new one 
         private void AppendTripToSessionState(Trip trip)
         {
             if (m_Trips == null)

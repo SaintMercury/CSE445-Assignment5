@@ -103,6 +103,16 @@
     <Content Include="App_Data\Member.xml" />
     <Content Include="App_Data\Staff.xml" />
     <Content Include="ProtectedMember\TripPlanner.aspx" />
+    <Content Include="Service References\Assign3ServicesMax\Assignment_5.Assign3ServicesMax.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\Assign3ServicesMax\Service.disco" />
+    <None Include="Service References\Assign3ServicesMax\configuration91.svcinfo" />
+    <None Include="Service References\Assign3ServicesMax\configuration.svcinfo" />
+    <None Include="Service References\Assign3ServicesMax\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="TryItPages\index.html" />
     <Content Include="Login.aspx" />
     <Content Include="ProtectedMember\Member.aspx" />
@@ -117,6 +127,19 @@
     <Content Include="ProtectedMember\Web.config" />
     <Content Include="ProtectedStaff\Web.config" />
     <None Include="Properties\PublishProfiles\Josh.pubxml" />
+    <None Include="Service References\Assign3ServicesMax\Service.wsdl" />
+    <None Include="Service References\Assign3ServicesMax\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Assign3ServicesMax\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Assign3ServicesMax\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Assign3ServicesMax\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\MyService\MyService.wsdl" />
     <None Include="Service References\MyService\MyService.xsd">
       <SubType>Designer</SubType>
@@ -167,6 +190,11 @@
     </Compile>
     <Compile Include="ProtectedMember\TripPlanner.aspx.designer.cs">
       <DependentUpon>TripPlanner.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Assign3ServicesMax\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
     <Compile Include="ProtectedMember\Member.aspx.cs">
@@ -247,6 +275,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Assign3ServicesMax\" />
     <WCFMetadataStorage Include="Service References\MyService\" />
   </ItemGroup>
   <PropertyGroup>
