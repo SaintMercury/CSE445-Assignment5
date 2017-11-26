@@ -76,6 +76,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
@@ -98,6 +102,7 @@
   <ItemGroup>
     <Content Include="App_Data\Member.xml" />
     <Content Include="App_Data\Staff.xml" />
+    <Content Include="ProtectedMember\TripPlanner.aspx" />
     <Content Include="TryItPages\index.html" />
     <Content Include="Login.aspx" />
     <Content Include="ProtectedMember\Member.aspx" />
@@ -147,12 +152,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\Distance.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DTOs\Trip.cs" />
+    <Compile Include="ProtectedMember\TripPlanner.aspx.cs">
+      <DependentUpon>TripPlanner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProtectedMember\TripPlanner.aspx.designer.cs">
+      <DependentUpon>TripPlanner.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
     <Compile Include="ProtectedMember\Member.aspx.cs">
@@ -173,7 +187,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Managers\CredentialsManager.cs" />
-    <Compile Include="Managers\SessionStateManager.cs" />
     <Compile Include="Managers\XmlAccessObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
