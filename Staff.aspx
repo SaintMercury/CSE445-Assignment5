@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Staff.aspx.cs" Inherits="Staff" %>
+<%@ Register TagPrefix="userControl" TagName="GetDate" Src="~/UserControl.ascx" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+    <userControl:GetDate runat="server" />
     </div>
     </form>
 </body>

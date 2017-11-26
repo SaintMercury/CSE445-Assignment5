@@ -11,4 +11,9 @@ public partial class UserControl : System.Web.UI.UserControl
     {
         this.Date.Text = DateTime.Today.ToLongDateString();
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
+    }
 }
