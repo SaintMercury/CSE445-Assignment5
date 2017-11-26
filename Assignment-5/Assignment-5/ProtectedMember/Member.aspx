@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Member Page</h1>
+    <a href="TripPlanner.aspx">Plan a trip</a>
     <form id="form1" runat="server">
     <div>
         <asp:Button runat="server" ID="btnLogout" Text="Logout" OnClick="btnLogout_Click"/>
