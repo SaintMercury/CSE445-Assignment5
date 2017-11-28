@@ -23,6 +23,12 @@
         Re-enter Password<br />
         <asp:TextBox ID="txtPW2" runat="server" TextMode="Password"></asp:TextBox>
         <br />
+        <br />
+        IMAGE<br />
+        <asp:Image ID="CAPTCHA_Image" runat="server" />
+        <asp:TextBox ID="ImageTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
         <asp:Button ID="btnRegister" runat="server" Text="Register Member" OnClick="btnRegisterMember_Click"/>
         <asp:Button ID="btnRegisterStaff" runat="server" Text="Register Staff" OnClick="btnRegisterStaff_Click"/>
         <br />

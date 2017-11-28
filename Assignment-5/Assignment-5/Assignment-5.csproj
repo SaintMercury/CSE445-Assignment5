@@ -102,6 +102,7 @@
   <ItemGroup>
     <Content Include="App_Data\Member.xml" />
     <Content Include="App_Data\Staff.xml" />
+    <Content Include="image.aspx" />
     <Content Include="ProtectedMember\CharacterMaker.aspx" />
     <Content Include="ProtectedMember\TripPlanner.aspx" />
     <Content Include="Service References\Assign3ServicesMax\Assignment_5.Assign3ServicesMax.CompositeType.datasource">
@@ -111,6 +112,13 @@
     <None Include="Service References\Assign3ServicesMax\configuration91.svcinfo" />
     <None Include="Service References\Assign3ServicesMax\configuration.svcinfo" />
     <None Include="Service References\Assign3ServicesMax\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ImageVerifierService\Service.disco" />
+    <None Include="Service References\ImageVerifierService\configuration91.svcinfo" />
+    <None Include="Service References\ImageVerifierService\configuration.svcinfo" />
+    <None Include="Service References\ImageVerifierService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -139,6 +147,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Assign3ServicesMax\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ImageVerifierService\Service.wsdl" />
+    <None Include="Service References\ImageVerifierService\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ImageVerifierService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ImageVerifierService\Service2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\MyService\MyService.wsdl" />
@@ -177,6 +195,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\Distance.cs" />
+    <Compile Include="image.aspx.cs">
+      <DependentUpon>image.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="image.aspx.designer.cs">
+      <DependentUpon>image.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -200,6 +225,11 @@
       <DependentUpon>TripPlanner.aspx</DependentUpon>
     </Compile>
     <Compile Include="Service References\Assign3ServicesMax\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ImageVerifierService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -284,6 +314,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Assign3ServicesMax\" />
+    <WCFMetadataStorage Include="Service References\ImageVerifierService\" />
     <WCFMetadataStorage Include="Service References\MyService\" />
   </ItemGroup>
   <PropertyGroup>

@@ -49,6 +49,24 @@ namespace Assignment_5 {
         protected global::System.Web.UI.WebControls.TextBox txtPW2;
         
         /// <summary>
+        /// CAPTCHA_Image control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image CAPTCHA_Image;
+        
+        /// <summary>
+        /// ImageTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ImageTextBox;
+        
+        /// <summary>
         /// btnRegister control.
         /// </summary>
         /// <remarks>

@@ -10,22 +10,31 @@ namespace Assignment_5
         protected void Page_Load(object sender, EventArgs e)
         {
             m_CredsManager = new CredentialsManager();
+            CAPTCHA_Image.ImageUrl = "~/image.aspx";
         }
 
         protected void btnRegisterMember_Click(object sender, EventArgs e)
         {
-            string uname, pw1, pw2;
+            string uname, pw1, pw2, captcha;
             if (Utility.TryParseText(txtUserName, out uname)
                 && Utility.TryParseText(txtPW1, out pw1)
-                && Utility.TryParseText(txtPW2, out pw2))
+                && Utility.TryParseText(txtPW2, out pw2)
+                && Utility.TryParseText(ImageTextBox, out captcha))
             {
 
                 if (pw1 == pw2)
                 {
                     if (m_CredsManager.RegisterMember(uname, pw1))
                     {
-                        lblError.Text = "Successfully created member. Proceed to login page.";
-                        txtUserName.Text = null;
+                        if (Session["generatedString"].Equals(captcha))
+                        {
+                            lblError.Text = "Successfully created member. Proceed to login page.";
+                            txtUserName.Text = null;
+                        }
+                        else
+                        {
+                            lblError.Text = "INCORRECT CAPTCHA";
+                        }
                     }
                     else
                     {
